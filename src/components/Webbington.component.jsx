@@ -2,10 +2,16 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import WebbingtonModal from './WebbingtonModal.component';
 import WebbingtonSearch from './WebbingtonSearch.component';
+import WebbingtonVideo from './WebbingtonVideo.component';
 import './Webbington.styles.scss';
 
 const Webbington = () => {
   const showModal = useSelector((state) => state.webbington.showModal);
+  const showVideo = useSelector((state) => state.webbington.showVideo);
+
+  if (showVideo) {
+    return (<WebbingtonVideo />);
+  }
 
   return (  <>
     <WebbingtonModal show={showModal} title={"Exciting Offer!"}/>
